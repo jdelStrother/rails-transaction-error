@@ -3,8 +3,16 @@
 let ruby = pkgs.ruby;
 in {
   # https://devenv.sh/packages/
-  packages =
-    [ ruby pkgs.git pkgs.libyaml pkgs.mysql80 pkgs.pkg-config pkgs.openssl ];
+  packages = [
+    ruby
+    pkgs.git
+    pkgs.libyaml
+    # pkgs.mysql80
+    pkgs.pkg-config
+    pkgs.openssl
+    pkgs.zlib
+    pkgs.zstd
+  ];
 
   env = {
     BUNDLE_PATH = "./.devenv/bundle";

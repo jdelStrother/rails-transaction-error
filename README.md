@@ -1,24 +1,27 @@
-# README
+Rails 7.2 connection issue with `use_transactional_tests=false`
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+``` shellsession
+$ while ruby test/system/posts_test.rb --seed 55813 -v ; do :; done
+Run options: --seed 55813 -v
 
-* Ruby version
+# Running:
 
-* System dependencies
+PostsTest1#test_1)_initial_visit = 1.11 s = .
+PostsTest2#test_2)_threaded_transactions = 0.00 s = .
+PostsTest3#test_3)_visiting_with_a_bad_transaction = [Screenshot Image]: /Users/jon/Developer/rails-transactions/tmp/screenshots/failures_test_3-_visiting_with_a_bad_transaction.png
+2.33 s = F
 
-* Configuration
 
-* Database creation
+Failure:
+PostsTest3#test_3)_visiting_with_a_bad_transaction [test/system/posts_test.rb:39]:
+expected to find text "FooBar" in "not found"
 
-* Database initialization
 
-* How to run the test suite
+bin/rails test test/system/posts_test.rb:36
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+Finished in 3.446470s, 0.8705 runs/s, 0.8705 assertions/s.
+3 runs, 3 assertions, 1 failures, 0 errors, 0 skips
+```
 
-* ...
