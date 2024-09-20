@@ -2,7 +2,7 @@ Rails 7.2 connection issue with `use_transactional_tests=false`
 
 
 ``` shellsession
-$ while ruby test/system/posts_test.rb --seed 55813 -v ; do :; done
+$ while ruby test/system/posts_test.rb -v ; do :; done
 Run options: --seed 55813 -v
 
 # Running:

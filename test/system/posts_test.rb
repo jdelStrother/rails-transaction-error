@@ -1,6 +1,13 @@
 require_relative "../test_helper"
 
 ActiveSupport::TestCase.test_order = :sorted
+module Minitest
+  # disable Minitest's random testcase ordering
+  def self.__run reporter, options
+    Runnable.runnables.map { _1.run reporter, options }
+  end
+end
+
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   driven_by :selenium, using: :headless_chrome
